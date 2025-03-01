@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const path = require("path");
 
 dotenv.config();
 
@@ -12,7 +13,7 @@ const userRoutes = require("./routes/user.routes");
 const app = express();
 
 // Middleware setup
-app.use(cors({ origin: "http://localhost:3000", credentials: true })); // ✅ Updated CORS configuration
+app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 app.use(express.json());
 
 // Routes
@@ -20,9 +21,11 @@ app.use("/api/auth", authRoutes);
 app.use("/api/excuses", excuseRoutes);
 app.use("/api/users", userRoutes);
 
-// Default route
-app.get("/", (req, res) => {
-  res.send("Welcome to Noctura API!");
+// Serve the React frontend build
+app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/build", "index.html"));
 });
 
 // Database connection
