@@ -11,12 +11,11 @@ const userRoutes = require("./routes/user.routes");
 
 const app = express();
 
-
-//Middleware setup
-app.use(cors());
+// Middleware setup
+app.use(cors({ origin: "http://localhost:3000", credentials: true })); // ✅ Updated CORS configuration
 app.use(express.json());
 
-//Routes
+// Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/excuses", excuseRoutes);
 app.use("/api/users", userRoutes);
@@ -26,7 +25,7 @@ app.get("/", (req, res) => {
   res.send("Welcome to Noctura API!");
 });
 
-//Database connection
+// Database connection
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/noctura";
 
