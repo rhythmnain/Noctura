@@ -1,11 +1,12 @@
 //user api calls
 import axiosInstance from "./axiosConfig";
+import axios from "axios";
 
 // Register User
 export const registerUser = async (userData) => {
-  const response = await axiosInstance.post("/users/register", userData);
-  return response.data;
-};
+    return axios.post('/api/register', userData);
+  };
+  
 
 // Login User
 export const loginUser = async (credentials) => {
