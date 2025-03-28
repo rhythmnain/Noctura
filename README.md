@@ -3,7 +3,7 @@
 # Noctura UI
 
 ## 🌌 Project Description
-Noctura UI is a **dark-themed, futuristic user interface** designed for seamless user experience with **glowing neon accents** and **smooth animations**. The project aims to create an intuitive and visually striking interface for **web applications**, combining aesthetics with **modern UI/UX best practices**.
+Noctura is a full-stack social avoidance app designed to help users gracefully avoid unwanted social interactions while maintaining control over their personal boundaries. Ironically, instead of keeping people apart, it ended up connecting like-minded individuals.
 
 Built using **React.js, Tailwind CSS, and Framer Motion**, Noctura UI provides:
 - A sleek, cyberpunk-inspired **dashboard**
